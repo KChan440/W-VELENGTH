@@ -1,0 +1,6 @@
+framework module Pods_WVLNGTHTests {
+  umbrella header "Pods-WVLNGTHTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

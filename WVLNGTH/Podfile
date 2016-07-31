@@ -1,0 +1,26 @@
+# Uncomment this line to define a global platform for your project
+# platform :ios, '8.0'
+# Uncomment this line if you're using Swift
+use_frameworks!
+
+target 'WVLNGTH' do
+	# Networking
+	pod 'Alamofire'
+	# JSON parsing
+	pod 'SwiftyJSON'
+	# Reactive library
+	pod 'RxSwift',    '~> 2.0'
+    pod 'RxCocoa',    '~> 2.0'
+    # Constraints DSL
+    pod 'SnapKit', '~> 0.15.0'
+end
+
+target 'WVLNGTHTests' do
+	pod 'RxBlocking', '~> 2.0'
+    pod 'RxTests',    '~> 2.0'
+end
+
+target 'WVLNGTHUITests' do
+
+end
+
