@@ -22,6 +22,7 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func loginButtonTapped(sender: UIButton) {
+        SpotifyManager.authenticate()
     }
 
 }
