@@ -17,7 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         // Initialize Spotify SDK
-        SpotifyManager.prepareForLaunch()
+        SpotifyAuthenticationManager.prepareForLaunch()
+        
+        window = Router.sharedInstance.prepareToLaunch()
         return true
     }
 
@@ -45,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, handleOpenURL url: NSURL) -> Bool {
         if url.host == "spotify-login-callback" {
-            return SpotifyManager.handleAuthenticationCallbackTriggeredByURL(url)
+            return SpotifyAuthenticationManager.handleAuthenticationCallbackTriggeredByURL(url)
         }
         return true
     }

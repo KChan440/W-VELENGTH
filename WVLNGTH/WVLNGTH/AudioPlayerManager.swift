@@ -13,17 +13,20 @@ class AudioPlayerManager: NSObject, SPTAudioStreamingDelegate {
     
     let player = SPTAudioStreamingController.sharedInstance()
     
-    var isLoggedIn: Bool = false
-    
     override init() {
         super.init()
         player.delegate = self
     }
     
-    func startWithAccessToken(token: String!) {
+    /**
+     Starts the audio player with Spotify auth token
+     
+     - parameter token: Spotify Auth Token
+     */
+    func startWithCurrentSession() {
         do {
-            try player.startWithClientId("168bdd1bac0a4c45b92151f94b2360f7")
-            player.loginWithAccessToken(token)
+            try player.startWithClientId(SPTAuth.defaultInstance().clientID)
+            player.loginWithAccessToken(SpotifyAuthenticationManager.currentSession.accessToken)
         } catch {
             print("Falied to start SPTAudioStreamingController with client id")
         }
@@ -32,11 +35,11 @@ class AudioPlayerManager: NSObject, SPTAudioStreamingDelegate {
     // MARK: SPTAudioStreamingDelegate
     
     func audioStreamingDidLogin(audioStreaming: SPTAudioStreamingController!) {
-        isLoggedIn = true
+  
     }
     
     func audioStreamingDidLogout(audioStreaming: SPTAudioStreamingController!) {
-        isLoggedIn = false
+
     }
     
 }

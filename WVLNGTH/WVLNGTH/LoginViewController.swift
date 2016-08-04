@@ -8,8 +8,13 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
-    @IBOutlet weak var loginButton: UIButton!
+class LoginViewController: ViewController {
+    
+    override var screenName: Screen? {
+        get {
+            return .AuthenticationScreen
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +27,7 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func loginButtonTapped(sender: UIButton) {
-        SpotifyManager.authenticate()
+        SpotifyAuthenticationManager.authenticate()
     }
 
 }
